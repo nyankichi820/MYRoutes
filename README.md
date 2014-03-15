@@ -3,7 +3,7 @@ MYRoutes
 
 simplify application view transition. original API make very easy and more useful.
 
-- simplify code. automatic push and present viewcontroller
+- simplify code. automatic push and present viewcontroller to current controller
 - Support for UINavigationController transition completion. not use delegate
 - Support with parameters transtion
 

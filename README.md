@@ -1,26 +1,27 @@
 MYRouter
-===
+====
 
 simplify application view transition. original API make very easy and more useful.
 
-    simplify code.
-    Support for UINavigationController transition completion. not use delegate
-    Support with parameters transtion
+- simplify code.
+- Support for UINavigationController transition completion. not use delegate
+- Support with parameters transtion
 
-Usage
-push to navigationcontroller
-With Storyboard
+## Usage
 
-MYRoutes *routes = [MYRoutes shared];
-[routes pushViewController:@"ViewControllerIdnetifier" withStoryboard:@"StoryboardName" animated:YES];
+### push to navigationcontroller
+#### With Storyboard
 
-With Xib
+    MYRoutes *routes = [MYRoutes shared];
+    [routes pushViewController:@"ViewControllerIdnetifier" withStoryboard:@"StoryboardName" animated:YES];
 
-[routes pushViewController:@"ViewController" withNib:@"ViewControllerXIB" animated:YES];
+#### With Xib
 
-Extend feature use navigation completion block
+    [routes pushViewController:@"ViewController" withNib:@"ViewControllerXIB" animated:YES];
 
-[routes pushViewController:@"ViewControllerIdnetifier" withStoryboard:@"StoryboardName" animated:YES completion:^{
+#### Extend feature use navigation completion block
+
+    [routes pushViewController:@"ViewControllerIdnetifier" withStoryboard:@"StoryboardName" animated:YES completion:^{
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"navigation complete"
                                                         message:@"complete!!"
                                                        delegate:nil
@@ -30,37 +31,38 @@ Extend feature use navigation completion block
 
 }];
 
-push to navigationcontroller
-With Storyboard
+### push to navigationcontroller
+#### With Storyboard
 
-[routes presentViewController:@"ViewControllerIdnetifier" withStoryboard:@"StoryboardName" animated:YES completion:nil];
+    [routes presentViewController:@"ViewControllerIdnetifier" withStoryboard:@"StoryboardName" animated:YES completion:nil];
 
-With Xib
+#### With Xib
 
-[routes presentViewController:@"ViewController" withNib:@"XIBTestViewController" animated:YES completion:nil];
+    [routes presentViewController:@"ViewController" withNib:@"XIBTestViewController" animated:YES completion:nil];
 
-with parameters transition
+#### with parameters transition
 
-NSDictionary *params = @{@"message":self.messageTexfield.text};
-[routes presentViewController:@"ViewControllerIdnetifier" withStoryboard:@"StoryboardName" animated:YES completion:nil];
-[routes pushViewController:@"ViewControllerIdnetifier" withStoryboard:@"StoryboardName" withParameters:params animated:YES completion:nil];
+    NSDictionary *params = @{@"message":self.messageTexfield.text};
+    [routes presentViewController:@"ViewControllerIdnetifier" withStoryboard:@"StoryboardName" animated:YES completion:nil];
+    [routes pushViewController:@"ViewControllerIdnetifier" withStoryboard:@"StoryboardName" withParameters:params animated:YES completion:nil];
 
-Next Implement Feature
+## Next Implement Feature
 
 comming soon
-URL Routing
+
+## URL Routing
 
 It is possible to deal　the URL of the various types. like a web service routing.
-open external app
+### open external app
 
-[routes openURLString:@"http://www.yahoo.co.jp"]
+    [routes openURLString:@"http://www.yahoo.co.jp"]
 
-my app url scheme open with route configuration
+### my app url scheme open with route configuration
 
-[routes openURLString:@"app://tweet/view/1"]
+    [routes openURLString:@"app://tweet/view/1"]
 
-internal url path open with route configuration
+### internal url path open with route configuration
 
-// open tweet view  has parameter id = 1 
-[routes openURLString:@"/tweet/view/1"]
+    // open tweet view  has parameter id = 1 
+    [routes openURLString:@"/tweet/view/1"]
 

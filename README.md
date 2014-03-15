@@ -42,7 +42,7 @@ simplify application view transition. original API make very easy and more usefu
 
 #### push view controller
     
-    // auto search current navigation contorller
+    // auto search current viewcontorller
     [routes presentViewController:viewController animated:YES completion:nil];
     
 #### With Storyboard

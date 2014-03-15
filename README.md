@@ -29,7 +29,7 @@ simplify application view transition. original API make very easy and more usefu
                                               otherButtonTitles:nil];
     [alertView show];
 
-}];
+    }];
 
 ### push to navigationcontroller
 #### With Storyboard
@@ -52,7 +52,7 @@ comming soon
 
 ## URL Routing
 
-It is possible to deal　the URL of the various types. like a web service routing.
+It is possible to dealthe URL of the various types. like a web service routing.
 ### open external app
 
     [routes openURLString:@"http://www.yahoo.co.jp"]

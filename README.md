@@ -29,7 +29,7 @@ simplify application view transition. original API make very easy and more usefu
 #### Extend feature use navigation completion block not use delegate
 
     [routes pushViewController:@"ViewControllerIdnetifier" withStoryboard:@"StoryboardName" animated:YES completion:^{
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"navigation complete"
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"navigation complete"
                                                         message:@"complete!!"
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"

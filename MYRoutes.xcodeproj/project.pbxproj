@@ -7,20 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F3CFB5718D4953700BB1CFC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7F3CFB5618D4953700BB1CFC /* README.md */; };
 		7FD60A9F18D492C900087254 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FD60A9E18D492C900087254 /* Foundation.framework */; };
 		7FD60AA118D492C900087254 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FD60AA018D492C900087254 /* CoreGraphics.framework */; };
 		7FD60AA318D492C900087254 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FD60AA218D492C900087254 /* UIKit.framework */; };
 		7FD60AA918D492C900087254 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7FD60AA718D492C900087254 /* InfoPlist.strings */; };
 		7FD60AAB18D492C900087254 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD60AAA18D492C900087254 /* main.m */; };
-		7FD60AAF18D492C900087254 /* MYAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD60AAE18D492C900087254 /* MYAppDelegate.m */; };
-		7FD60AB218D492C900087254 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FD60AB018D492C900087254 /* Main.storyboard */; };
-		7FD60AB518D492C900087254 /* MYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD60AB418D492C900087254 /* MYViewController.m */; };
 		7FD60AB718D492C900087254 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FD60AB618D492C900087254 /* Images.xcassets */; };
 		7FD60ABE18D492C900087254 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FD60ABD18D492C900087254 /* XCTest.framework */; };
 		7FD60ABF18D492C900087254 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FD60A9E18D492C900087254 /* Foundation.framework */; };
 		7FD60AC018D492C900087254 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FD60AA218D492C900087254 /* UIKit.framework */; };
 		7FD60AC818D492C900087254 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7FD60AC618D492C900087254 /* InfoPlist.strings */; };
 		7FD60ACA18D492C900087254 /* MYRoutesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD60AC918D492C900087254 /* MYRoutesTests.m */; };
+		7FD60ADB18D492F200087254 /* MYAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD60AD518D492F200087254 /* MYAppDelegate.m */; };
+		7FD60ADC18D492F200087254 /* MYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD60AD718D492F200087254 /* MYViewController.m */; };
+		7FD60ADD18D492F200087254 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FD60AD818D492F200087254 /* Main.storyboard */; };
+		7FD60ADE18D492F200087254 /* Second.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FD60AD918D492F200087254 /* Second.storyboard */; };
+		7FD60ADF18D492F200087254 /* XIBTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD60ADA18D492F200087254 /* XIBTestViewController.xib */; };
+		7FD60AE218D4932500087254 /* MYRoutes.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD60AE118D4932500087254 /* MYRoutes.m */; };
+		7FD60AE418D4934400087254 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 7FD60AE318D4934400087254 /* LICENSE */; };
+		7FD60AE718D4934C00087254 /* MYRoutes.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 7FD60AE518D4934C00087254 /* MYRoutes.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F3CFB5618D4953700BB1CFC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		7FD60A9B18D492C900087254 /* MYRoutes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MYRoutes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FD60A9E18D492C900087254 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7FD60AA018D492C900087254 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -42,17 +49,23 @@
 		7FD60AA818D492C900087254 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7FD60AAA18D492C900087254 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7FD60AAC18D492C900087254 /* MYRoutes-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MYRoutes-Prefix.pch"; sourceTree = "<group>"; };
-		7FD60AAD18D492C900087254 /* MYAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYAppDelegate.h; sourceTree = "<group>"; };
-		7FD60AAE18D492C900087254 /* MYAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYAppDelegate.m; sourceTree = "<group>"; };
-		7FD60AB118D492C900087254 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7FD60AB318D492C900087254 /* MYViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYViewController.h; sourceTree = "<group>"; };
-		7FD60AB418D492C900087254 /* MYViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYViewController.m; sourceTree = "<group>"; };
 		7FD60AB618D492C900087254 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7FD60ABC18D492C900087254 /* MYRoutesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MYRoutesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FD60ABD18D492C900087254 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		7FD60AC518D492C900087254 /* MYRoutesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MYRoutesTests-Info.plist"; sourceTree = "<group>"; };
 		7FD60AC718D492C900087254 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7FD60AC918D492C900087254 /* MYRoutesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYRoutesTests.m; sourceTree = "<group>"; };
+		7FD60AD418D492F200087254 /* MYAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYAppDelegate.h; sourceTree = "<group>"; };
+		7FD60AD518D492F200087254 /* MYAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYAppDelegate.m; sourceTree = "<group>"; };
+		7FD60AD618D492F200087254 /* MYViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYViewController.h; sourceTree = "<group>"; };
+		7FD60AD718D492F200087254 /* MYViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYViewController.m; sourceTree = "<group>"; };
+		7FD60AD818D492F200087254 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		7FD60AD918D492F200087254 /* Second.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Second.storyboard; sourceTree = "<group>"; };
+		7FD60ADA18D492F200087254 /* XIBTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XIBTestViewController.xib; sourceTree = "<group>"; };
+		7FD60AE018D4932500087254 /* MYRoutes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYRoutes.h; sourceTree = "<group>"; };
+		7FD60AE118D4932500087254 /* MYRoutes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYRoutes.m; sourceTree = "<group>"; };
+		7FD60AE318D4934400087254 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		7FD60AE518D4934C00087254 /* MYRoutes.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MYRoutes.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,10 +95,14 @@
 		7FD60A9218D492C800087254 = {
 			isa = PBXGroup;
 			children = (
+				7FD60AD318D492CF00087254 /* Classes */,
 				7FD60AA418D492C900087254 /* MYRoutes */,
 				7FD60AC318D492C900087254 /* MYRoutesTests */,
 				7FD60A9D18D492C900087254 /* Frameworks */,
 				7FD60A9C18D492C900087254 /* Products */,
+				7FD60AE318D4934400087254 /* LICENSE */,
+				7FD60AE518D4934C00087254 /* MYRoutes.podspec */,
+				7F3CFB5618D4953700BB1CFC /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,11 +129,13 @@
 		7FD60AA418D492C900087254 /* MYRoutes */ = {
 			isa = PBXGroup;
 			children = (
-				7FD60AAD18D492C900087254 /* MYAppDelegate.h */,
-				7FD60AAE18D492C900087254 /* MYAppDelegate.m */,
-				7FD60AB018D492C900087254 /* Main.storyboard */,
-				7FD60AB318D492C900087254 /* MYViewController.h */,
-				7FD60AB418D492C900087254 /* MYViewController.m */,
+				7FD60AD418D492F200087254 /* MYAppDelegate.h */,
+				7FD60AD518D492F200087254 /* MYAppDelegate.m */,
+				7FD60AD618D492F200087254 /* MYViewController.h */,
+				7FD60AD718D492F200087254 /* MYViewController.m */,
+				7FD60AD818D492F200087254 /* Main.storyboard */,
+				7FD60AD918D492F200087254 /* Second.storyboard */,
+				7FD60ADA18D492F200087254 /* XIBTestViewController.xib */,
 				7FD60AB618D492C900087254 /* Images.xcassets */,
 				7FD60AA518D492C900087254 /* Supporting Files */,
 			);
@@ -150,6 +169,16 @@
 				7FD60AC618D492C900087254 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7FD60AD318D492CF00087254 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7FD60AE018D4932500087254 /* MYRoutes.h */,
+				7FD60AE118D4932500087254 /* MYRoutes.m */,
+			);
+			name = Classes;
+			path = MYRoutes/Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,9 +258,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FD60AE418D4934400087254 /* LICENSE in Resources */,
+				7FD60ADF18D492F200087254 /* XIBTestViewController.xib in Resources */,
+				7FD60ADE18D492F200087254 /* Second.storyboard in Resources */,
+				7FD60ADD18D492F200087254 /* Main.storyboard in Resources */,
 				7FD60AB718D492C900087254 /* Images.xcassets in Resources */,
+				7FD60AE718D4934C00087254 /* MYRoutes.podspec in Resources */,
+				7F3CFB5718D4953700BB1CFC /* README.md in Resources */,
 				7FD60AA918D492C900087254 /* InfoPlist.strings in Resources */,
-				7FD60AB218D492C900087254 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,8 +284,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FD60AB518D492C900087254 /* MYViewController.m in Sources */,
-				7FD60AAF18D492C900087254 /* MYAppDelegate.m in Sources */,
+				7FD60ADC18D492F200087254 /* MYViewController.m in Sources */,
+				7FD60AE218D4932500087254 /* MYRoutes.m in Sources */,
+				7FD60ADB18D492F200087254 /* MYAppDelegate.m in Sources */,
 				7FD60AAB18D492C900087254 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,14 +316,6 @@
 				7FD60AA818D492C900087254 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		7FD60AB018D492C900087254 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7FD60AB118D492C900087254 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		7FD60AC618D492C900087254 /* InfoPlist.strings */ = {
@@ -461,6 +488,7 @@
 				7FD60ACF18D492C900087254 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7FD60AD018D492C900087254 /* Build configuration list for PBXNativeTarget "MYRoutesTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +497,7 @@
 				7FD60AD218D492C900087254 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

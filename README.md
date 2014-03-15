@@ -10,6 +10,13 @@ simplify application view transition. original API make very easy and more usefu
 ## Usage
 
 ### push to navigationcontroller
+
+#### push view controller
+
+    // auto search current navigation contorller
+    [routes pushViewController:viewController animated:YES];
+
+
 #### With Storyboard
 
     MYRoutes *routes = [MYRoutes shared];
@@ -31,7 +38,13 @@ simplify application view transition. original API make very easy and more usefu
 
     }];
 
-### push to navigationcontroller
+### present view contorller 
+
+#### push view controller
+    
+    // auto search current navigation contorller
+    [routes presentViewController:viewController animated:YES completion:nil];
+    
 #### With Storyboard
 
     [routes presentViewController:@"ViewControllerIdnetifier" withStoryboard:@"StoryboardName" animated:YES completion:nil];

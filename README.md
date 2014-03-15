@@ -19,7 +19,7 @@ simplify application view transition. original API make very easy and more usefu
 
     [routes pushViewController:@"ViewController" withNib:@"ViewControllerXIB" animated:YES];
 
-#### Extend feature use navigation completion block
+#### Extend feature use navigation completion block not use delegate
 
     [routes pushViewController:@"ViewControllerIdnetifier" withStoryboard:@"StoryboardName" animated:YES completion:^{
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"navigation complete"

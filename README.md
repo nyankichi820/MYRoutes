@@ -1,9 +1,9 @@
-MYRouter
+MYRoutes
 ====
 
 simplify application view transition. original API make very easy and more useful.
 
-- simplify code.
+- simplify code. automatic push and present viewcontroller
 - Support for UINavigationController transition completion. not use delegate
 - Support with parameters transtion
 

@@ -27,18 +27,27 @@
 
 -(IBAction)dispatchRouterToNib:(id)sender{
     MYRoutes *routes = [MYRoutes shared];
-    [routes dispatch:@"/nib/hello"];
+    NSURL *url =  [NSURL URLWithString:@"/nib/hello"];
+    [routes dispatch:url];
 }
 
 -(IBAction)dispatchRouterToStoryboard:(id)sender{
     MYRoutes *routes = [MYRoutes shared];
-    [routes dispatch:@"/storyboard/first/good"];
+    NSURL *url =  [NSURL URLWithString:@"/storyboard/first/good"];
+    [routes dispatch:url];
 }
 
 
+-(IBAction)openFromScheme:(id)sender{
+    MYRoutes *routes = [MYRoutes shared];
+    NSURL *url =  [NSURL URLWithString:@"myroutes://nib/from_external"];
+    [routes dispatch:url];
+}
+
 -(IBAction)openExternalApp:(id)sender{
     MYRoutes *routes = [MYRoutes shared];
-    [routes openURLString:@"http://www.yahoo.co.jp"];
+    NSURL *url =  [NSURL URLWithString:@"http://www.yahoo.co.jp"];
+    [routes dispatch:url];
 }
 
 -(IBAction)pushInternalStoryboard:(id)sender{

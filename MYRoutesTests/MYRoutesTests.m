@@ -71,14 +71,16 @@
 {
     MYGuidPost *guidPost = [[MYGuidPost alloc] initWithConfig:@"/hoge/fuga/:hoge" destination:@{@"xib":@"hoge"}];
    
-    XCTAssert([guidPost isMatch: @"/hoge/fuga/fuga"], @"hoge");
+    NSURL *url =  [NSURL URLWithString:@"/hoge/fuga/fuga"];
+    XCTAssert([guidPost isMatch:url ], @"hoge");
     
-    XCTAssert(![guidPost isMatch: @"/hoge/fuga/"], @"hoge");
+    url =  [NSURL URLWithString:@"/hoge/fuga/"];
+    XCTAssert(![guidPost isMatch:url], @"hoge");
     
     
     guidPost = [[MYGuidPost alloc] initWithConfig:@"/blog/:id/:action" destination:@{@"xib":@"hoge"}];
-    
-    XCTAssert([guidPost isMatch: @"/blog/1/show"], @"hoge");
+    url =  [NSURL URLWithString:@"/blog/1/show"];
+    XCTAssert([guidPost isMatch: url], @"hoge");
     
 }
 
@@ -86,19 +88,24 @@
 {
     MYGuidPost *guidPost = [[MYGuidPost alloc] initWithConfig:@"/hoge/fuga/:hoge" destination:@{@"xib":@"hoge"}];
     
-    NSDictionary *params = [guidPost captureParams: @"/hoge/fuga/fuga"];
+    NSURL *url =  [NSURL URLWithString:@"/hoge/fuga/fuga"];
+    NSDictionary *params = [guidPost captureParams:url];
  
     XCTAssert([[params objectForKey:@"hoge"] isEqualToString:@"fuga"], @"hoge");
     
-    XCTAssert(![guidPost captureParams:  @"/hoge/fuga/"], @"hoge");
+    url =  [NSURL URLWithString:@"/hoge/fuga/"];
+    XCTAssert(![guidPost captureParams:  url], @"hoge");
     
 
     
     guidPost = [[MYGuidPost alloc] initWithConfig:@"/blog/:id/:action" destination:@{@"xib":@"hoge"}];
-    
-    params = [guidPost captureParams: @"/blog/1/show"];
+   
+    url =  [NSURL URLWithString:@"/blog/1/show?category_id=2"];
+    params = [guidPost captureParams:url ];
     XCTAssert([[params objectForKey:@"id"] isEqualToString:@"1"], @"hoge");
     XCTAssert([[params objectForKey:@"action"] isEqualToString:@"show"], @"hoge");
+    XCTAssert([[params objectForKey:@"categoryId"] isEqualToString:@"2"], @"hoge");
+    
 }
 
 - (void)testLoadConfig

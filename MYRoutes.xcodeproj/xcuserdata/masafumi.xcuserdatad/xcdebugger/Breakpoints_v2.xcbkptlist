@@ -150,41 +150,105 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MYRoutes/Classes/MYRoutes.m"
-            timestampString = "416670165.108449"
+            timestampString = "416678668.136808"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "-isMatch:"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
+            landmarkName = "-dispatch:destination:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MYRoutes/Classes/MYRoutes.m"
+            timestampString = "416678668.136808"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "229"
+            endingLineNumber = "229"
+            landmarkName = "-dispatch:destination:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MYRoutes/Classes/MYRoutes.m"
+            timestampString = "416678668.136808"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "227"
+            endingLineNumber = "227"
+            landmarkName = "-dispatch:destination:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MYRoutesTests/MYRoutesTests.m"
+            timestampString = "416678681.219391"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "-testCaptureParam"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MYRoutes/Classes/MYRoutes.m"
+            timestampString = "416678892.461644"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "-captureParams:"
             landmarkType = "5">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[MYRoute isMatch:]"
+                  symbolName = "-[MYGuidPost captureParams:]"
                   moduleName = "MYRoutes"
                   urlString = "file://localhost/Users/masafumi/Documents/MYRoutes/MYRoutes/Classes/MYRoutes.m"
-                  timestampString = "416650827.738654"
+                  timestampString = "416679021.219325"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "61"
-                  endingLineNumber = "61"
-                  offsetFromSymbolStart = "266">
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "1609">
                </Location>
                <Location
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[MYRoute isMatch:]"
+                  symbolName = "-[MYGuidPost captureParams:]"
                   moduleName = "MYRoutes"
                   urlString = "file://localhost/Users/masafumi/Documents/MYRoutes/MYRoutes/Classes/MYRoutes.m"
-                  timestampString = "416650827.739154"
+                  timestampString = "416679021.21963"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "61"
-                  endingLineNumber = "61"
-                  offsetFromSymbolStart = "337">
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "1761">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -196,12 +260,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MYRoutes/Classes/MYRoutes.m"
-            timestampString = "416675932.036176"
+            timestampString = "416679056.384177"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "190"
-            endingLineNumber = "190"
-            landmarkName = "-dispatch:destination:"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "-captureParams:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -212,29 +276,43 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MYRoutes/Classes/MYRoutes.m"
-            timestampString = "416676339.360731"
+            timestampString = "416679089.639258"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
-            landmarkName = "-dispatch:destination:"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "-captureParams:"
             landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MYRoutes/Classes/MYRoutes.m"
-            timestampString = "416676348.969014"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "198"
-            endingLineNumber = "198"
-            landmarkName = "-dispatch:destination:"
-            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[MYGuidPost captureParams:]"
+                  moduleName = "MYRoutes"
+                  urlString = "file://localhost/Users/masafumi/Documents/MYRoutes/MYRoutes/Classes/MYRoutes.m"
+                  timestampString = "416679219.198677"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "194">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[MYGuidPost captureParams:]"
+                  moduleName = "MYRoutes"
+                  urlString = "file://localhost/Users/masafumi/Documents/MYRoutes/MYRoutes/Classes/MYRoutes.m"
+                  timestampString = "416679219.199171"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "1221">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

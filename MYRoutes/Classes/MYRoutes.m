@@ -44,7 +44,7 @@
     return routeToken;
 }
 
--(BOOL)isMatch:(NSString*)urlString{
+-(BOOL)isMatch:(NSURL*)url{
     NSError *error   = nil;
     NSRegularExpression *regexp =
     [NSRegularExpression regularExpressionWithPattern:self.path
@@ -53,9 +53,8 @@
     if (error != nil) {
         NSLog(@"%@", error);
     } else {
-        
         NSTextCheckingResult *match =
-        [regexp firstMatchInString:urlString options:0 range:NSMakeRange(0, urlString.length)];
+        [regexp firstMatchInString:url.path options:0 range:NSMakeRange(0, url.path.length)];
         if(match.numberOfRanges == self.paramTokens.count + 1){
            return YES;
         }
@@ -64,7 +63,19 @@
     return NO;
 }
 
--(NSDictionary*)captureParams:(NSString*)urlString{
+-(NSDictionary*)captureParams:(NSURL*)url{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    if(url.query){
+
+        for (NSString *param in [url.query componentsSeparatedByString:@"&"]) {
+            NSArray *pair = [param componentsSeparatedByString:@"="];
+            if([pair count] < 2) continue;
+            
+            [params setObject:[self urlDecode:[pair objectAtIndex:1]] forKey:[self snakeToCamelCase:[pair objectAtIndex:0]]];
+        }
+    }
+    
     NSError *error   = nil;
     NSRegularExpression *regexp =
     [NSRegularExpression regularExpressionWithPattern:self.path
@@ -73,14 +84,13 @@
     if (error != nil) {
         NSLog(@"%@", error);
     } else {
-        
+        NSLog(@"path : %@", [url path]);
         NSTextCheckingResult *match =
-        [regexp firstMatchInString:urlString options:0 range:NSMakeRange(0, urlString.length)];
+        [regexp firstMatchInString:url.path options:0 range:NSMakeRange(0, url.path.length)];
         if(match.numberOfRanges == self.paramTokens.count + 1){
-            NSMutableDictionary *params = [NSMutableDictionary dictionary];
             for(int i = 1 ; i<= self.paramTokens.count ;i++){
-                NSString *matchValue =  [urlString substringWithRange:[match rangeAtIndex:i]];
-                [params setValue:matchValue forKey:[[self.paramTokens objectAtIndex:i-1] objectForKey:@"name"]];
+                NSString *matchValue =  [url.path substringWithRange:[match rangeAtIndex:i]];
+                [params setValue:matchValue forKey:[self snakeToCamelCase:[[self.paramTokens objectAtIndex:i-1] objectForKey:@"name"]]];
             }
             return params;
         }
@@ -88,8 +98,6 @@
     }
     return nil;
 }
-
-
 
 
 #pragma util methods
@@ -125,11 +133,30 @@
     return output;
 }
 
+-(NSString*) urlEncode:(NSString *)input {
+    return (NSString *)CFBridgingRelease(
+                 CFURLCreateStringByAddingPercentEscapes(
+                                 kCFAllocatorDefault,
+                                 (__bridge CFStringRef)input,
+                                 NULL,
+                                 (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+                                 kCFStringEncodingUTF8));
+}
+
+-(NSString*) urlDecode:(NSString *)input {
+    return (NSString *)CFBridgingRelease(
+                 CFURLCreateStringByReplacingPercentEscapesUsingEncoding(
+                                 kCFAllocatorDefault,
+                                 (__bridge CFStringRef)input,
+                                 CFSTR(""),
+                                 kCFStringEncodingUTF8));
+}
+
 
 @end
 
 
-    
+
 @implementation MYRoutes
 
 
@@ -166,24 +193,26 @@ static MYRoutes *instance_ = nil;
     }
 }
 
--(void)dispatch:(NSString*)urlString{
-    NSURL *url = [NSURL URLWithString:urlString];
+-(BOOL)dispatch:(NSURL *)url{
     
     // external apps
-    if(url.scheme && ![self isSelfUrlSchema:urlString]){
-        [self openURLWithString:urlString];
+    if(url.scheme && ![self isSelfUrlSchema:url]){
+        [self openURL:url];
     }
-    else{
+    else {
         for(MYGuidPost *guildPost in self.routes){
-            if([guildPost isMatch:urlString]){
-                NSDictionary *param = [guildPost captureParams:urlString];
+            if([guildPost isMatch:url]){
+                NSDictionary *param = [guildPost captureParams:url];
                 [self dispatch:param destination:guildPost.destination];
-                break;
+                return YES;
             }
         }
     }
     NSLog(@"not found route");
+    return NO;
 }
+
+
 
 -(void)dispatch:(NSDictionary*)params destination:(NSDictionary*)destination{
     NSString *type = @"push"; // default push
@@ -219,19 +248,19 @@ static MYRoutes *instance_ = nil;
 }
 
 
--(BOOL)isSelfUrlSchema:(NSString*)urlString{
+-(BOOL)isSelfUrlSchema:(NSURL*)url{
     NSArray *selfUrlSchames = [[[[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleURLTypes"] objectAtIndex:0] valueForKey:@"CFBundleURLSchemes"];
     
     for(NSString *selfUrlSchema in selfUrlSchames){
-        if([selfUrlSchema isEqualToString:urlString]){
+        if([url.absoluteString hasPrefix:selfUrlSchema]){
             return YES;
         }
     }
     return NO;
 }
 
--(void)openURLWithString:(NSString*)urlString{
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
+-(void)openURL:(NSURL*)url{
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 #pragma create navigation controller

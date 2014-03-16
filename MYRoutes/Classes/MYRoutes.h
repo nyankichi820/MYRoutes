@@ -17,8 +17,8 @@
 
 -(id)initWithConfig:(NSString*) key destination:(NSDictionary*)destination;
 
--(BOOL)isMatch:(NSString*)urlString;
--(NSDictionary*)captureParams:(NSString*)urlString;
+-(BOOL)isMatch:(NSURL*)url;
+-(NSDictionary*)captureParams:(NSURL*)url;
 -(NSDictionary*)convertToken:(NSString*)token;
 
 @end
@@ -36,9 +36,9 @@ typedef void ((^MYRoutesNavigationCompleteBlocks)(void));
 
 -(void)loadRouteConfig:(NSArray*)routeConfigs;
 
--(void)dispatch:(NSString*)urlString;
+-(BOOL)dispatch:(NSURL*)url;
 
--(void)openURLString:(NSString*)urlString;
+-(void)openURL:(NSURL*)url;
 
 -(UINavigationController*)currentNavigationController;
 

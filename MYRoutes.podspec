@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "MYRoutes"
-  s.version      = "0.0.1"
+  s.version      = "0.1.0"
   s.summary      = "simplify application view transition. original API make very easy and more useful."
   s.requires_arc = true
 
@@ -9,6 +9,8 @@ Pod::Spec.new do |s|
                     - simplify code.
                     - Support for UINavigationController transition completion. not use delegate
                     - Support with parameters transtion
+                    - Support with parameters transtion
+                    - Support url base transition like web service
                    DESC
 
   s.homepage     = "https://github.com/nyankichi820/MYRoutes"

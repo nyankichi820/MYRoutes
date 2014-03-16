@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>909B60B6-DFAF-4B95-97A0-B1E47C780BDB</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MYRoutes</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D7D5DE1F-585E-4E06-949A-C32AC3907BBD</key>
+		<string>ssh://github.com/nyankichi820/MYRoutes.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MYRoutes.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D7D5DE1F-585E-4E06-949A-C32AC3907BBD</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/nyankichi820/MYRoutes.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D7D5DE1F-585E-4E06-949A-C32AC3907BBD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D7D5DE1F-585E-4E06-949A-C32AC3907BBD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MYRoutes</string>
+		</dict>
+	</array>
+</dict>
+</plist>

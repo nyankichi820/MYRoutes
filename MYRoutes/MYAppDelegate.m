@@ -7,12 +7,20 @@
 //
 
 #import "MYAppDelegate.h"
+#import "MYRoutes.h"
 
 @implementation MYAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    [[MYRoutes shared] loadRouteConfig:@[
+                                         @[@"/nib/:message" , @{@"nib":@"XIBTestViewController",@"class":@"MYViewController"}],
+                                         @[@"/storyboard/first/:message" , @{@"storyboard":@"Main",@"identifier":@"First"}],
+                                         ]];
+    
+    
     return YES;
 }
 							

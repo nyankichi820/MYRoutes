@@ -9,44 +9,87 @@
 #import "MYRoutes.h"
 
 
-// url router is next implement feature
-@interface MYRoute : NSObject
-@property(nonatomic,strong) NSString *prefix;
-@property(nonatomic,strong) NSDictionary *params;
+@implementation MYGuidPost
 
-+(MYRoute*)create:(NSString*)urlString;
-
--(BOOL)isMatch:(NSString*)urlString;
-
-
-@end
-
-
-@implementation MYRoute
-
-+(MYRoute*)create:(NSString*)urlString{
-    if(![urlString hasPrefix:@"/"]){
-        return nil;
+-(id)initWithConfig:(NSString*) key destination:(NSDictionary*)destination{
+    self = [self init];
+    self.paramTokens = [NSMutableArray array];
+    self.tokens = [NSMutableArray array];
+    if(self){
+        NSMutableString *path = [[NSMutableString alloc] init];
+        NSArray *pathes = [[key substringFromIndex:1] componentsSeparatedByString:@"/"];
+        for(NSString *token in pathes){
+            NSDictionary *routeToken = [self convertToken:token];
+            [path appendString:@"/"];
+            [path appendString:[routeToken objectForKey:@"path"]];
+        }
+        self.path = path;
+        self.destination = destination;
     }
-    NSMutableString *prefix = [NSMutableString stringWithString:@"/"];
-    
-    NSArray *pathes = [[urlString substringFromIndex:1] componentsSeparatedByString:@"/"];
-    for(NSString *path in pathes){
-        if([urlString hasPrefix:@":"]){
-            NSString *param = [urlString substringFromIndex:1];
+    return self;
+}
+
+
+-(NSDictionary*)convertToken:(NSString*)token{
+    NSDictionary *routeToken;
+    if([token hasPrefix:@":"]){
+        NSString *name =[token substringFromIndex:1];
+        routeToken = @{@"path":@"([^\\/]+)",@"type":@"param",@"name":name};
+        [self.paramTokens addObject:routeToken];
+    }
+    else{
+        routeToken = @{@"path":token,@"type":@"match"};
+    }
+    [self.tokens addObject:routeToken];
+    return routeToken;
+}
+
+-(BOOL)isMatch:(NSString*)urlString{
+    NSError *error   = nil;
+    NSRegularExpression *regexp =
+    [NSRegularExpression regularExpressionWithPattern:self.path
+                                              options:0
+                                                error:&error];
+    if (error != nil) {
+        NSLog(@"%@", error);
+    } else {
+        
+        NSTextCheckingResult *match =
+        [regexp firstMatchInString:urlString options:0 range:NSMakeRange(0, urlString.length)];
+        if(match.numberOfRanges == self.paramTokens.count + 1){
+           return YES;
         }
-        else{
-            [prefix appendString:@"/"];
-            [prefix appendString:path];
+        
+    }
+    return NO;
+}
+
+-(NSDictionary*)captureParams:(NSString*)urlString{
+    NSError *error   = nil;
+    NSRegularExpression *regexp =
+    [NSRegularExpression regularExpressionWithPattern:self.path
+                                              options:0
+                                                error:&error];
+    if (error != nil) {
+        NSLog(@"%@", error);
+    } else {
+        
+        NSTextCheckingResult *match =
+        [regexp firstMatchInString:urlString options:0 range:NSMakeRange(0, urlString.length)];
+        if(match.numberOfRanges == self.paramTokens.count + 1){
+            NSMutableDictionary *params = [NSMutableDictionary dictionary];
+            for(int i = 1 ; i<= self.paramTokens.count ;i++){
+                NSString *matchValue =  [urlString substringWithRange:[match rangeAtIndex:i]];
+                [params setValue:matchValue forKey:[[self.paramTokens objectAtIndex:i-1] objectForKey:@"name"]];
+            }
+            return params;
         }
+        
     }
     return nil;
 }
 
--(BOOL)isMatch:(NSString*)urlString{
-    
-    return NO;
-}
+
 
 
 #pragma util methods
@@ -113,7 +156,17 @@ static MYRoutes *instance_ = nil;
     return self;
 }
 
--(void)openURLString:(NSString*)urlString{
+-(void)loadRouteConfig:(NSArray*)routeConfig{
+    self.routes = [NSMutableArray array];
+    for(NSArray *config in routeConfig){
+        NSString *path = [config objectAtIndex:0];
+        NSDictionary *destination = [config objectAtIndex:1];
+        MYGuidPost *route = [[MYGuidPost alloc] initWithConfig:path destination:destination];
+        [self.routes addObject:route];
+    }
+}
+
+-(void)dispatch:(NSString*)urlString{
     NSURL *url = [NSURL URLWithString:urlString];
     
     // external apps
@@ -121,11 +174,49 @@ static MYRoutes *instance_ = nil;
         [self openURLWithString:urlString];
     }
     else{
-        // TODO: implement internal url routing
+        for(MYGuidPost *guildPost in self.routes){
+            if([guildPost isMatch:urlString]){
+                NSDictionary *param = [guildPost captureParams:urlString];
+                [self dispatch:param destination:guildPost.destination];
+                break;
+            }
+        }
     }
+    NSLog(@"not found route");
 }
 
-
+-(void)dispatch:(NSDictionary*)params destination:(NSDictionary*)destination{
+    NSString *type = @"push"; // default push
+    NSNumber *animated = [NSNumber numberWithBool:YES]; // default push
+    
+    if([destination valueForKey:@"type"]){
+        type = [destination valueForKey:@"type"];
+    }
+    if([destination valueForKey:@"animated"]){
+        animated = [destination valueForKey:@"animated"];
+    }
+    
+    if([destination valueForKey:@"storyboard"] && [destination valueForKey:@"identifier"] ){
+        NSString *storyboardName = [destination valueForKey:@"storyboard"] ;
+        NSString *identifier = [destination valueForKey:@"identifier"] ;
+        if( [type isEqualToString:@"push"]){
+            [self pushViewController:identifier withStoryboard:storyboardName withParameters:params  animated:[animated boolValue]];
+        }
+        else{
+            [self presentViewController:identifier withStoryboard:storyboardName withParameters:params animated:[animated boolValue] completion:nil ];
+        }
+    }
+    else if([destination valueForKey:@"nib"]){
+        NSString *nibName = [destination valueForKey:@"nib"] ;
+        NSString *className = [destination valueForKey:@"class"] ;
+        if( [type isEqualToString:@"push"]){
+            [self pushViewController:className withNib:nibName withParameters:params  animated:[animated boolValue]];
+        }
+        else{
+            [self presentViewController:className withNib:nibName withParameters:params  animated:[animated boolValue] completion:nil];
+        }
+    }
+}
 
 
 -(BOOL)isSelfUrlSchema:(NSString*)urlString{

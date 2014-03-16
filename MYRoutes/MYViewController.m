@@ -25,6 +25,15 @@
  	// Do any additional setup after loading the view, typically from a nib.
 }
 
+-(IBAction)dispatchRouterToNib:(id)sender{
+    MYRoutes *routes = [MYRoutes shared];
+    [routes dispatch:@"/nib/hello"];
+}
+
+-(IBAction)dispatchRouterToStoryboard:(id)sender{
+    MYRoutes *routes = [MYRoutes shared];
+    [routes dispatch:@"/storyboard/first/good"];
+}
 
 
 -(IBAction)openExternalApp:(id)sender{

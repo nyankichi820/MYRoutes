@@ -8,6 +8,12 @@ simplify application view transition. original API make very easy and more usefu
 - Support with parameters transtion
 - Support url base routing like web servise
 
+## Install
+
+instal from cocoapods
+
+     pod 'MYRoutes', '~> 0.1.0'
+
 ## Usage
 
 

@@ -18,9 +18,9 @@ It is possible to dealthe URL of the various types. like a web service routing.
 #### Routing Configurations
 
      [[MYRoutes shared] loadRouteConfig:@[
-                                         @[@"/nib/:message" ,         @{@"nib":@"XIBTestViewController",@"class":@"MYViewController"}],
-                                         @[@"/storyboard/first/:message" , @{@"storyboard":@"Main",@"identifier":@"First"}],
-                                         ]];
+          @[@"/nib/:message" , @{@"nib":@"XIBTestViewController",@"class":@"MYViewController"}],
+          @[@"/storyboard/first/:message" , @{@"storyboard":@"Main",@"identifier":@"First"}],
+     ]];
 
 
 ### transition from Xib with parameter

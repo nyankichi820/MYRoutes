@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "MYRoutes"
-  s.version      = "0.1.0"
+  s.version      = "0.1.2"
   s.summary      = "simplify application view transition. original API make very easy and more useful."
   s.requires_arc = true
 

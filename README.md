@@ -24,25 +24,38 @@ It is possible to dealthe URL of the various types. like a web service routing.
 #### Routing Configurations
 
      [[MYRoutes shared] loadRouteConfig:@[
-          // dispatch url ( example /nib/hello ) to push MYViewController from  XIBTestViewController.xib file
           @[@"/nib/:message" ,@{@"nib":@"XIBTestViewController",@"class":@"MYViewController"}],
-          // dispatch url ( example /storyboard/first/helllo ) to push UIViewController(storyboard id "First")  from Main.storyboard file
           @[@"/storyboard/first/:message" , @{@"storyboard":@"Main",@"identifier":@"First"}],
      ]];
+     
+     [[MYRoutes shared] dispatch:@"/nib/hello?category_id=1"]
 
 
-
-Routing destination
+#### Routing destination
 
 -  push and present ViewController from XIB file
 -  push and present ViewController from Storyboard 
  
-pass parameter
+#### pass parameter
 
 - capture url pass (example config /tweet/:id .   /tweet/1 → id = 1)
 - capture query parameter pass (example config /post/view?post_id=1 .  postId = 1)
 
 set to viewcontroller befere transition
+
+
+#### configuration example
+     
+dispatch url ( example /nib/hello ) to push MYViewController from  XIBTestViewController.xib file
+
+     @[@"/nib/:message" ,@{@"nib":@"XIBTestViewController",@"class":@"MYViewController"}],
+    
+    
+    
+dispatch url ( example /storyboard/first/helllo ) to push UIViewController(storyboard id "First")  from Main.storyboard file
+
+     @[@"/storyboard/first/:message" , @{@"storyboard":@"Main",@"identifier":@"First"}],
+     
 
 ### transition from Xib with parameter
 

@@ -53,8 +53,9 @@
     if (error != nil) {
         NSLog(@"%@", error);
     } else {
+        NSString *path = url.scheme ? [NSString stringWithFormat:@"/%@%@",url.host,url.path] : url.path;
         NSTextCheckingResult *match =
-        [regexp firstMatchInString:url.path options:0 range:NSMakeRange(0, url.path.length)];
+        [regexp firstMatchInString:path options:0 range:NSMakeRange(0, path.length)];
         if(match.numberOfRanges == self.paramTokens.count + 1){
            return YES;
         }
@@ -85,11 +86,13 @@
         NSLog(@"%@", error);
     } else {
         NSLog(@"path : %@", [url path]);
+        NSString *path = url.scheme ? [NSString stringWithFormat:@"/%@%@",url.host,url.path] : url.path;
+        
         NSTextCheckingResult *match =
-        [regexp firstMatchInString:url.path options:0 range:NSMakeRange(0, url.path.length)];
+        [regexp firstMatchInString:path options:0 range:NSMakeRange(0, path.length)];
         if(match.numberOfRanges == self.paramTokens.count + 1){
             for(int i = 1 ; i<= self.paramTokens.count ;i++){
-                NSString *matchValue =  [url.path substringWithRange:[match rangeAtIndex:i]];
+                NSString *matchValue =  [path substringWithRange:[match rangeAtIndex:i]];
                 [params setValue:matchValue forKey:[self snakeToCamelCase:[[self.paramTokens objectAtIndex:i-1] objectForKey:@"name"]]];
             }
             return params;

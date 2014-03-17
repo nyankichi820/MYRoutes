@@ -39,9 +39,7 @@
 
 
 -(IBAction)openFromScheme:(id)sender{
-    MYRoutes *routes = [MYRoutes shared];
-    NSURL *url =  [NSURL URLWithString:@"myroutes://nib/from_external"];
-    [routes dispatch:url];
+     [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"myroutes://nib/from_external"]];
 }
 
 -(IBAction)openExternalApp:(id)sender{

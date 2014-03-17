@@ -118,7 +118,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="openExternalApp:" destination="FrL-bE-9me" eventType="touchUpInside" id="oA6-DJ-4Rx"/>
                                     <action selector="openFromScheme:" destination="FrL-bE-9me" eventType="touchUpInside" id="2jQ-TY-XcX"/>
                                 </connections>
                             </button>

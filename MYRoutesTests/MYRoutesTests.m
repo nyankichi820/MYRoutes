@@ -106,6 +106,15 @@
     XCTAssert([[params objectForKey:@"action"] isEqualToString:@"show"], @"hoge");
     XCTAssert([[params objectForKey:@"categoryId"] isEqualToString:@"2"], @"hoge");
     
+    
+    guidPost = [[MYGuidPost alloc] initWithConfig:@"/blog/:id/:action" destination:@{@"xib":@"hoge"}];
+    
+    url =  [NSURL URLWithString:@"myroutes://blog/1/show?category_id=2"];
+    params = [guidPost captureParams:url ];
+    XCTAssert([[params objectForKey:@"id"] isEqualToString:@"1"], @"hoge");
+    XCTAssert([[params objectForKey:@"action"] isEqualToString:@"show"], @"hoge");
+    XCTAssert([[params objectForKey:@"categoryId"] isEqualToString:@"2"], @"hoge");
+    
 }
 
 - (void)testLoadConfig

@@ -22,21 +22,30 @@ It is possible to dealthe URL of the various types. like a web service routing.
                                          @[@"/storyboard/first/:message" , @{@"storyboard":@"Main",@"identifier":@"First"}],
                                          ]];
 
+
 ### transition from Xib with parameter
 
-    // push MYViewController from Xib has message parameter 
-    [routes dispatch:@"/nib/hello"]
+    // push MYViewController from Xib has message an categoryId parameters 
+    [routes dispatch:@"/nib/hello?category_id=1"]
     
 ### transition from Storyboard with parameter
 
     // push MYViewController from Storyboard has message parameter 
     [routes dispatch:@"/storyboard/first/hello"]
     
+### open from url scheme 
 
+    - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+    sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+    {
+        // dispatch from url scheme. example xxxx://tweet/view/id
+        return [[MYRoutes shared] dispatch:url ];
+    }
+
+ 
 ### open external app
 
     [routes dispatch:@"http://www.yahoo.co.jp"]
-
 
     
 ### manual transition

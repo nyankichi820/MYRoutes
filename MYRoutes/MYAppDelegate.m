@@ -27,7 +27,7 @@
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    return [[MYRoutes shared] dispatch:[url absoluteString]];
+    return [[MYRoutes shared] dispatch:url ];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

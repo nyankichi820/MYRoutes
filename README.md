@@ -28,7 +28,7 @@ It is possible to dealthe URL of the various types. like a web service routing.
           @[@"/storyboard/first/:message" , @{@"storyboard":@"Main",@"identifier":@"First"}],
      ]];
      
-     [[MYRoutes shared] dispatch:@"/nib/hello?category_id=1"]
+     [[MYRoutes shared] dispatch:[NSURL URLWithString:@"/nib/hello?category_id=1"]]
 
 
 #### Routing destination
@@ -60,12 +60,12 @@ dispatch url ( example /storyboard/first/helllo ) to push UIViewController(story
 ### transition from Xib with parameter
 
     // push MYViewController from Xib has message an categoryId parameters 
-    [routes dispatch:@"/nib/hello?category_id=1"]
+    [routes dispatch:[NSURL URLWithString:@"/nib/hello?category_id=1"]
     
 ### transition from Storyboard with parameter
 
     // push MYViewController from Storyboard has message parameter 
-    [routes dispatch:@"/storyboard/first/hello"]
+    [routes dispatch:[NSURL URLWithString:@"/storyboard/first/hello"]]
     
 ### open from url scheme 
 
@@ -79,7 +79,7 @@ dispatch url ( example /storyboard/first/helllo ) to push UIViewController(story
  
 ### open external app
 
-    [routes dispatch:@"http://www.yahoo.co.jp"]
+    [routes dispatch:[NSURL URLWithString:@"http://www.yahoo.co.jp"]]
 
     
 ### manual transition
